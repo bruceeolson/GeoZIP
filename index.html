@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+      on iOS devices-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Maps Toolbar</title>
+    
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+    <style>
+      html, body {
+        font-family: sans-serif; margin:0; padding:0;
+      }
+		.clearfix {	*zoom : 1; }
+		.clearfix:before,
+		.clearfix:after {
+			display: table;
+			content : ""; 
+		}
+		.clearfix:after { clear : both; }
+	  
+	  #pageContainer {
+		  position: relative;
+		  width: 920px; margin:0 auto; 
+	  }
+	  #leftSidebar { 
+	  	float:right; 
+		width: 30%;
+	  }
+	  #mainWindow {
+		  float:left;
+		  width:65%; height:550px;
+	  }
+      #header {
+        height: 80px; 
+        overflow: auto;
+        padding: 0.5em;
+      }
+    </style>
+    
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="geozip.js"></script>
+    <script src="http://js.arcgis.com/3.11/"></script>
+    <script>
+      require([
+        "esri/map", 
+        "esri/toolbars/draw",
+        "esri/graphic",
+		"esri/Color",
+
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
+		"esri/symbols/TextSymbol",
+		"esri/symbols/Font",
+		
+        "esri/tasks/query", 
+		"esri/tasks/QueryTask",
+		"esri/geometry/Extent",
+		"esri/SpatialReference",
+		
+        "dojo/parser", "dijit/registry",
+		"dojo/on", "dojo/query","dojo/promise/all",	"dojo/_base/connect",	
+        "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
+        "dijit/form/Button", "dijit/WidgetSet",
+		"dojo/domReady!"
+      ], function( Map, Draw, Graphic, Color,
+	  				SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font,
+					Query, QueryTask, Extent, SpatialReference, 
+					parser, registry, on, query, all,connect) {
+		  
+		    //geoZip.init(Array.prototype.slice.call( arguments, 1 ));
+			geoZip.init(Map, Draw, Graphic, Color, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font, Query, QueryTask, Extent, SpatialReference, parser, registry, on, query, all,connect);
+      });
+    </script>
+  </head>
+  <body class="nihilo">
+  
+	<div id="pageContainer" class="clearfix">
+    
+    	<h1>GeoZipList &nbsp;&nbsp;&nbsp;<input type="button" value="Submit"></h1>
+          
+        <div id="leftSidebar">
+            <div id="results"></div>
+        </div>
+      
+        <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
+          <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+            <span>Draw:<br /></span>
+            <button data-dojo-type="dijit/form/Button">Point</button>
+            <button data-dojo-type="dijit/form/Button">Polygon</button>
+            <!--The Arrow,Triangle,Circle and Ellipse types all draw with the polygon symbol-->
+            <button data-dojo-type="dijit/form/Button">Circle</button>
+            <!--
+            <button data-dojo-type="dijit/form/Button">Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Multi Point</button>
+            <button data-dojo-type="dijit/form/Button">Line</button>
+            <button data-dojo-type="dijit/form/Button">Arrow</button>
+            <button data-dojo-type="dijit/form/Button">Triangle</button>
+            <button data-dojo-type="dijit/form/Button">Ellipse</button>
+            -->
+          </div>
+          
+          <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+        </div>
+  
+	</div>
+
+  </body>
+</html>
