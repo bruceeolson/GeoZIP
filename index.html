@@ -46,33 +46,31 @@
     <script src="http://js.arcgis.com/3.11/"></script>
     <script>
       require([
-        "esri/map", 
-        "esri/toolbars/draw",
-        "esri/graphic",
-		"esri/Color",
-
-        "esri/symbols/SimpleMarkerSymbol",
-        "esri/symbols/SimpleLineSymbol",
-        "esri/symbols/SimpleFillSymbol",
-		"esri/symbols/TextSymbol",
-		"esri/symbols/Font",
-		
-        "esri/tasks/query", 
-		"esri/tasks/QueryTask",
-		"esri/geometry/Extent",
-		"esri/SpatialReference",
-		
-        "dojo/parser", "dijit/registry",
-		"dojo/on", "dojo/query","dojo/promise/all",	"dojo/_base/connect",	
-        "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
-        "dijit/form/Button", "dijit/WidgetSet",
-		"dojo/domReady!"
+				"esri/map", 
+				"esri/toolbars/draw",
+				"esri/graphic",
+				"esri/Color",
+				
+				"esri/symbols/SimpleMarkerSymbol",
+				"esri/symbols/SimpleLineSymbol",
+				"esri/symbols/SimpleFillSymbol",
+				"esri/symbols/TextSymbol",
+				"esri/symbols/Font",
+				
+				"esri/tasks/query", 
+				"esri/tasks/QueryTask",
+				"esri/geometry/Extent",
+				"esri/SpatialReference",
+				
+				"dojo/parser", "dijit/registry",
+				"dojo/on", "dojo/query","dojo/promise/all",	"dojo/_base/connect",	
+				"dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
+				"dijit/form/Button", "dijit/WidgetSet",
+				"dojo/domReady!"
       ], function( Map, Draw, Graphic, Color,
 	  				SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font,
 					Query, QueryTask, Extent, SpatialReference, 
 					parser, registry, on, query, all,connect) {
-		  
-		    //geoZip.init(Array.prototype.slice.call( arguments, 1 ));
 			geoZip.init(Map, Draw, Graphic, Color, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font, Query, QueryTask, Extent, SpatialReference, parser, registry, on, query, all,connect);
       });
     </script>
